@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js cheat chart</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color:white;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      h1 {
+        text-align: center;
+        margin: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px 10px;
+        margin: 20px;
+      }
+      th {
+        background:linear-gradient(#59a5e4, #426dc3);
+        color: white;
+      }
+      
+      tt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25px;
+        background:linear-gradient(#59a5e4, #426dc3);
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+      }
+      .title {
+        display: block;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>JavaScript CheatSheet</h1>
+      <h2>Mohammad Zarif</h2>
+      <table>
+       
+        <table>
+          <tt>Data Types</tt>
+          <th>Type of</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>strings</td>
+            <td>
+              A string (or a text string) is a series of characters like "Mohamad Zarif
+              ". Strings are written with quotes. You can use single or
+              double quotes:
+            </td>
+            <td>
+              <pre>
+let carName1 = "Volvo XC60";
+let carName2 = 'Volvo XC60';
+
+document.getElementById("demo").innerHTML =
+carName1 + "<br>" + 
+carName2; </pre>
+            </td>
+            <td>
+              Volvo XC60 <br />
+              Volvo XC60
+            </td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td>
+              JavaScript has only one type of numbers.Numbers can be written
+              with, or without decimals.
+            </td>
+            <td>
+              <pre>
+let x1 = 34.00;
+let x2 = 34;
+let x3 = 3.14;
+
+document.getElementById("demo").innerHTML =
+x1 + "<br>" + x2 + "<br>" + x3;
+            </pre>
+            </td>
+            <td>
+              <pre>
+34
+34
+3.14
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Booleans</td>
+            <td>Booleans can only have two values: true or false.</td>
+            <td>
+              <pre>
+let x = 5;
+let y = 5;
+let z = 6;
+
+document.getElementById("demo").innerHTML =
+(x == y) + "<br>" + (x == z);
+            </pre>
+            </td>
+            <td>
+              <pre>
+true
+false
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Objects</td>
+            <td>
+              JavaScript objects are written with curly braces {}. Object
+              properties are written as name:value pairs, separated by commas.
+            </td>
+            <td>
+              <pre>
+const person = {
+  firstName : "John",
+  lastName  : "Doe",
+  age     : 50,
+  eyeColor  : "blue"
+};
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+            </pre
+              >
+            </td>
+            <td>John is 50 years old.</td>
+          </tr>
+          <tr>
+            <td>Arrays</td>
+            <td>
+              JavaScript arrays are written with square brackets. Array items
+              are separated by commas.
+            </td>
+            <td>
+              <pre>
+const numbers = ["One","Two","Three"];
+
+document.getElementById("demo").innerHTML = numbers[0];
+            </pre
+              >
+            </td>
+            <td>One</td>
+          </tr>
+          <tr>
+            <td>Undefined</td>
+            <td>
+              In JavaScript, a variable without a value, has the value
+              undefined. The type is also undefined.
+            </td>
+            <td>
+              <pre>
+let car;
+document.getElementById("demo").innerHTML =
+car + "<br>" + typeof car;
+            </pre>
+            </td>
+            <td>undefined <br />undefined</td>
+          </tr>
+          <tr>
+            <td>empty values</td>
+            <td>
+              An empty value has nothing to do with undefined. An empty string
+              has both a legal value and a type.
+            </td>
+            <td>
+              <pre>
+let car = "";
+document.getElementById("demo").innerHTML =
+"The value is: " +
+car + "<br>" +
+"The type is: " + typeof car;
+            </pre>
+            </td>
+            <td>
+              The value is: <br />
+              The type is: string
+            </td>
+          </tr>
+        </table>
+        <table> <table>
+          
+          <tt>Variables</tt>
+          <th>Keywords</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <tr>
+              <td>Naming Conventions</td>
+              <td colspan="3">
+                <pre>
+  Names can contain letters, digits, underscores, and dollar signs.
+  Names must begin with a letter
+  Names can also begin with $ and _ (but we will not use it in this tutorial)
+  Names are case sensitive (y and Y are different variables)
+  Reserved words (like JavaScript keywords) cannot be used as names
+              </pre
+                >
+              </td>
+            </tr>
+            <td>var</td>
+            <td>
+              The most common variable. Can be reassigned but only accessed
+              within a function. Variables defined with var move to the top when
+              code is executed.
+            </td>
+            <td>
+              <pre>
+    var x = 5;
+    var y = 6;
+    var z = x + y;
+    document.getElementById("demo").innerHTML =
+    "The value of z is: " + z;</pre
+              >
+            </td>
+            <td>The value of z is: 11</td>
+          </tr>
+          <tr>
+            <td>const</td>
+            <td>
+              Cannot be reassigned and not accessible before they appear within
+              the code.
+            </td>
+            <td>
+              <pre>
+    const price1 = 5;
+    const price2 = 6;
+    let total = price1 + price2;
+    document.getElementById("demo").innerHTML =
+    "The total is: " + total;
+            </pre
+              >
+            </td>
+            <td>The total is: 11</td>
+          </tr>
+          <tr>
+            <td>let</td>
+            <td>
+              Similar to const, however, let variable can be reassigned but not
+              re-declared.
+            </td>
+            <td>
+              <pre>
+    let x = 5;
+    let y = 6;
+    let z = x + y;
+    document.getElementById("demo").innerHTML =
+    "The value of z is: " + z;
+            </pre
+              >
+            </td>
+            <td>The value of z is: 11</td>
+          </tr>
+          <tr>
+            <td>undeclared</td>
+            <td>declaring the variable using none of above.</td>
+            <td>
+              <pre>
+    x = 5;
+    y = 6;
+    z = x + y;
+    document.getElementById("demo").innerHTML =
+    "The value of z is: " + z;
+            </pre
+              >
+            </td>
+            <td>The value of z is: 11</td>
+          </tr>
+
+        </table></table>
+        <table>
+          <tt>String Methods</tt>
+          <th>Mothod</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>length</td>
+            <td>The length property returns the length of a string:</td>
+            <td>
+              <pre>
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.getElementById("demo").innerHTML = text.length; </pre
+              >
+            </td>
+            <td>26</td>
+          </tr>
+          <tr>
+            <td>Slice()</td>
+            <td>
+              slice() extracts a part of a string and returns the extracted part
+              in a new string. The method takes 2 parameters: the start
+              position, and the end position (end not included).
+            </td>
+            <td>
+              <pre>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.slice(7,13); 
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>substring()</td>
+            <td>
+              substring() is similar to slice(). The difference is that start
+              and end values less than 0 are treated as 0 in substring().
+            </td>
+            <td>
+              <pre>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substring(7,13);
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>substr()</td>
+            <td>
+              substr() is similar to slice(). The difference is that the second
+              parameter specifies the length of the extracted part.
+            </td>
+            <td>
+              <pre>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo").innerHTML = str.substr(7,6);
+            </pre
+              >
+            </td>
+            <td>Banana</td>
+          </tr>
+          <tr>
+            <td>replace()</td>
+            <td>
+              The replace() method replaces a specified value with another value
+              in a string:
+            </td>
+            <td>
+              <pre>
+&lt;p id="demo">Please visit Microsoft!&lt;/p&gt;
+
+&lt;script&gt;
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.replace("Microsoft","W3Schools");
+}
+&lt;/script&gt;
+            </pre
+              >
+            </td>
+            <td>Please visit W3Schools!</td>
+          </tr>
+          <tr>
+            <td>toUpperCase()</td>
+            <td>A string is converted to upper case with toUpperCase().</td>
+            <td>
+              <pre>
+&lt;p id="demo">Hello World!&lt;/p&gt;
+
+&lt;script&gt;
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.toUpperCase();
+}
+&lt;script&gt;
+            </pre
+              >
+            </td>
+            <td>HELLO WORLD!</td>
+          </tr>
+          <tr>
+            <td>toLowerCase()</td>
+            <td>A string is converted to lowwer case with toLowerCase()).</td>
+            <td>
+              <pre>
+&lt;p id="demo">Hello World!&lt;/p&gt;
+
+&lt;script&gt;
+function myFunction() {
+  let text = document.getElementById("demo").innerHTML;
+  document.getElementById("demo").innerHTML =
+  text.toLowerCase();
+}
+&lt;script&gt;
+            </pre
+              >
+            </td>
+            <td>hello world!</td>
+          </tr>
+          <tr>
+            <td>concat()</td>
+            <td>concat() joins two or more strings</td>
+            <td>
+              <pre>
+let text1 = "Helloooo";
+let text2 = "World!";
+let text3 = text1.concat(" ",text2);
+document.getElementById("demo").innerHTML = text3;
+            </pre
+              >
+            </td>
+            <td>Helloooo World!</td>
+          </tr>
+          <tr>
+            <td>trim()</td>
+            <td>
+              The trim() method removes whitespace from both sides of a string
+            </td>
+            <td>
+              <pre>
+let text1 = "     Hello World!     ";
+let text2 = text1.trim();
+document.getElementById("demo").innerHTML =
+"Length text1 = " + text1.length + "<br>Length text2 = " + text2.length;
+            </pre>
+            </td>
+            <td>
+              Length text1 = 22 <br />
+              Length text2 = 12
+            </td>
+          </tr>
+          <tr>
+            <td>indexOf()</td>
+            <td>
+              The indexOf() method returns the index of (the position of) the
+              first occurrence of a specified text in a string
+            </td>
+            <td>
+              <pre>
+let str = "Please locate where 'locate' occurs!";
+document.getElementById("demo").innerHTML = str.indexOf("locate"); </pre
+              >
+            </td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>lastIndexOf()</td>
+            <td>
+              The lastIndexOf() method returns the index of the last occurrence
+              of a specified text in a string
+            </td>
+            <td>
+              <pre>
+let str = "Please locate where 'locate' occurs!";
+document.getElementById("demo").innerHTML = str.lastIndexOf("locate"); </pre
+              >
+            </td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>search()</td>
+            <td>
+              The search() method searches a string for a specified value and
+              returns the position of the match
+            </td>
+            <td>
+              <pre>
+let str = "Please locate where 'locate' occurs!";
+document.getElementById("demo").innerHTML = str.search("locate"); </pre
+              >
+            </td>
+            <td>7</td>
+          </tr>
+        </table>
+        <table>
+          <tt>Array Methods</tt>
+          <th>Mothod</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>toString()</td>
+            <td>
+              The JavaScript method toString() converts an array to a string of
+              (comma separated) array values
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString(); </pre
+              >
+            </td>
+            <td>Banana,Orange,Apple,Mango</td>
+          </tr>
+          <tr>
+            <td>join())</td>
+            <td>
+              The join() method also joins all array elements into a string. It
+              behaves just like toString(), but in addition you can specify the
+              separator
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" * ");
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana * Orange * Apple * Mango
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>pop()</td>
+            <td>The pop() method removes the last element from an array</td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.pop();
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Banana,Orange,Apple
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>push()</td>
+            <td>
+              The push() method adds a new element to an array (at the end)
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.push("Kiwi");
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+                Banana,Orange,Apple,Mango
+
+Banana,Orange,Apple,Mango,Kiwi
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>shift()</td>
+            <td>
+              The shift() method removes the first array element and "shifts"
+              all other elements to a lower index.
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.shift();
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Orange,Apple,Mango</pre
+              >
+              !
+            </td>
+          </tr>
+          <tr>
+            <td>unshift()</td>
+            <td>
+              The unshift() method adds a new element to an array (at the
+              beginning), and "unshifts" older elements
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.unshift("Lemon");
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Lemon,Banana,Orange,Apple,Mango</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>length</td>
+            <td>
+              The length property provides an easy way to append a new element
+              to an array
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits[fruits.length] = "Kiwi";
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Banana,Orange,Apple,Mango,Kiwi</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>delete())</td>
+            <td>
+              Array elements can be deleted using the JavaScript operator
+              delete() Using delete leaves undefined holes in the array. Use
+              pop() or shift() instead.
+            </td>
+            <td>
+              <pre>
+lconst fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+document.getElementById("demo1").innerHTML =
+"The first fruit is: " + fruits[0];
+
+delete fruits[0];
+
+document.getElementById("demo2").innerHTML =
+"The first fruit is: " + fruits[0];
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+The first fruit is: Banana
+
+The first fruit is: undefined</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>concat()</td>
+            <td>
+              The concat() method creates a new array by merging (concatenating)
+              existing arrays
+            </td>
+            <td>
+              <pre>
+const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+const myChildren = myGirls.concat(myBoys);
+
+document.getElementById("demo").innerHTML = myChildren;
+            </pre
+              >
+            </td>
+            <td>Cecilie,Lone,Emil,Tobias,Linus</td>
+          </tr>
+          <tr>
+            <td>splice()/add</td>
+            <td>
+              The splice() method can be used to add new items to an array
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+
+fruits.splice(2, 0, "Lemon", "Kiwi");
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Banana,Orange,Lemon,Kiwi,Apple,Mango</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>splice()/remove</td>
+            <td>
+              With clever parameter setting, you can use splice() to remove
+              elements without leaving "holes" in the array:
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.splice(0, 1);
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Orange,Apple,Mango</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>slice()</td>
+            <td>
+              The slice() method slices out a piece of an array into a new array
+            </td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1);
+document.getElementById("demo").innerHTML = fruits + "<br><br>" + citrus;
+            </pre>
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Lemon,Apple,Mango
+
+Orange,Lemon,Apple,Mango</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>sort()</td>
+            <td>The sort() method sorts an array alphabetically</td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+
+fruits.sort();
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Apple,Banana,Mango,Orange</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>reverse()</td>
+            <td>The reverse() method reverses the elements in an array.</td>
+            <td>
+              <pre>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+y
+fruits.sort();
+
+fruits.reverse();
+
+document.getElementById("demo2").innerHTML = fruits;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Banana,Orange,Apple,Mango
+
+Orange,Mango,Banana,Apple</pre
+              >
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tt>Number Methods</tt>
+          <th>Mothod</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>toString()</td>
+            <td>
+              The toString() method returns a number as a string. All number
+              methods can be used on any type of numbers (literals, variables,
+              or expressions)
+            </td>
+            <td>
+              <pre>
+let x = 123;
+document.getElementById("demo").innerHTML =
+  x.toString() + "<br>" +
+   (123).toString() + "<br>" +
+   (100 + 23).toString(); </pre>
+            </td>
+            <td>
+              <pre>
+123
+123
+123
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>toExponential()</td>
+            <td>
+              toExponential() returns a string, with a number rounded and
+              written using exponential notation.
+            </td>
+            <td>
+              <pre>
+let x = 9.656;
+document.getElementById("demo").innerHTML =
+  x.toExponential() + "<br>" + 
+  x.toExponential(2) + "<br>" + 
+  x.toExponential(4) + "<br>" + 
+  x.toExponential(6);
+            </pre>
+            </td>
+            <td>
+              <pre>
+9.656e+0
+9.66e+0
+9.6560e+0
+9.656000e+0
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>toFixed()</td>
+            <td>
+              toFixed() returns a string, with the number written with a
+              specified number of decimals
+            </td>
+            <td>
+              <pre>
+let x = 9.656;
+document.getElementById("demo").innerHTML =
+  x.toFixed(0) + "<br>" +
+  x.toFixed(2) + "<br>" +
+  x.toFixed(4) + "<br>" +
+  x.toFixed(6);
+            </pre>
+            </td>
+            <td>
+              <pre>
+10
+9.66
+9.6560
+9.656000
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>toPrecision()</td>
+            <td>
+              toPrecision() returns a string, with a number written with a
+              specified length
+            </td>
+            <td>
+              <pre>
+let x = 9.656;
+document.getElementById("demo").innerHTML = 
+  x.toPrecision() + "<br>" +
+  x.toPrecision(2) + "<br>" +
+  x.toPrecision(4) + "<br>" +
+  x.toPrecision(6);  
+            </pre>
+            </td>
+            <td>
+              <pre>
+  9.656
+9.7
+9.656
+9.65600
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>valueOf()</td>
+            <td>valueOf() returns a number as a number</td>
+            <td>
+              <pre>
+let x = 123;
+
+document.getElementById("demo").innerHTML = 
+  x.valueOf() + "<br>" +
+  (123).valueOf() + "<br>" +
+  (100 + 23).valueOf();
+            </pre>
+            </td>
+            <td>
+              <pre>
+123
+123
+123</pre
+              >
+              !
+            </td>
+          </tr>
+          <tr>
+            <td>Number()</td>
+            <td>
+              Number() can be used to convert JavaScript variables to numbers
+            </td>
+            <td>
+              <pre>
+document.getElementById("demo").innerHTML = 
+  Number(true) + "<br>" +
+  Number(false) + "<br>" +
+  Number("10") + "<br>" + 
+  Number("  10") + "<br>" +
+  Number("10  ") + "<br>" +
+  Number(" 10  ") + "<br>" +
+  Number("10.33") + "<br>" + 
+  Number("10,33") + "<br>" +
+  Number("10 33") + "<br>" +
+  Number("John");
+            </pre>
+            </td>
+            <td>
+              <pre>
+1
+0
+10
+10
+10
+10
+10.33
+NaN
+NaN
+NaN</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>parseInt()</td>
+            <td>
+              parseInt() parses a string and returns a whole number. Spaces are
+              allowed. Only the first number is returned
+            </td>
+            <td>
+              <pre>
+document.getElementById("demo").innerHTML = 
+  parseInt("-10") + "<br>" +
+  parseInt("-10.33") + "<br>" +
+  parseInt("10") + "<br>" +
+  parseInt("10.33") + "<br>" +
+  parseInt("10 6") + "<br>" +  
+  parseInt("10 years") + "<br>" +  
+  parseInt("years 10");
+            </pre>
+            </td>
+            <td>
+              <pre>
+-10
+-10
+10
+10
+10
+10
+NaN</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>parseFloat()</td>
+            <td>
+              parseFloat() parses a string and returns a number. Spaces are
+              allowed. Only the first number is returned
+            </td>
+            <td>
+              <pre>
+document.getElementById("demo").innerHTML = 
+  parseFloat("10") + "<br>" +
+  parseFloat("10.33") + "<br>" +
+  parseFloat("10 6") + "<br>" +  
+  parseFloat("10 years") + "<br>" +
+  parseFloat("years 10");
+            </pre>
+            </td>
+            <td>
+              <pre>
+10
+10.33
+10
+10
+NaN</pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>MAX_VALUE</td>
+            <td>MAX_VALUE returns the largest possible number in JavaScript</td>
+            <td>
+              <pre>
+let x = Number.MAX_VALUE;
+document.getElementById("demo").innerHTML = x;
+
+document.getElementById("demo").innerHTML = myChildren;
+            </pre
+              >
+            </td>
+            <td>1.7976931348623157e+308</td>
+          </tr>
+          <tr>
+            <td>MIN_VALUE</td>
+            <td>MIN_VALUE returns the lowest possible number in JavaScript</td>
+            <td>
+              <pre>
+let x = Number.MIN_VALUE;
+document.getElementById("demo").innerHTML = x;
+            </pre
+              >
+            </td>
+            <td><pre>5e-324</pre></td>
+          </tr>
+        </table>
+        <table>
+          <tt>Js Dates</tt>
+          <th>Format</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>new Date()</td>
+            <td>
+              new Date() creates a new date object with the current date and
+              time
+            </td>
+            <td>
+              <pre>
+const d = new Date();
+document.getElementById("demo").innerHTML = d; </pre
+              >
+            </td>
+            <td>
+              <pre>
+Sun Nov 12 2023 13:37:39 GMT+0430 (Afghanistan Time)        </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>new Date(year, month, ...)</td>
+            <td>
+              new Date(year, month, ...) creates a new date object with a
+              specified date and time. 7 numbers specify year, month, day, hour,
+              minute, second, and millisecond (in that order)
+            </td>
+            <td>
+              <pre>
+const d = new Date(2018, 11, 24, 10, 33, 30, 0);
+document.getElementById("demo").innerHTML = d;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Mon Dec 24 2018 10:33:30 GMT+0430 (Afghanistan Time)
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>new Date(dateString)</td>
+            <td>
+              new Date(dateString) creates a new date object from a date string
+            </td>
+            <td>
+              <pre>
+const d = new Date("October 13, 2014 11:13:00");
+document.getElementById("demo").innerHTML = d;
+
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Mon Oct 13 2014 11:13:00 GMT+0430 (Afghanistan Time)
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>new Date(milliseconds)</td>
+            <td>
+              new Date(milliseconds) creates a new date object as zero time plus
+              milliseconds
+            </td>
+            <td>
+              <pre>
+const d = new Date(0);
+document.getElementById("demo").innerHTML = d; 
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Thu Jan 01 1970 04:30:00 GMT+0430 (Afghanistan Time)
+            </pre
+              >
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tt>Js Dates Methods</tt>
+          <th>Methods</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>toString()</td>
+            <td>
+              When you display a date object in HTML, it is automatically
+              converted to a string, with the toString() method.
+            </td>
+            <td>
+              <pre>
+const d = new Date();
+document.getElementById("demo").innerHTML = d.toString(); </pre
+              >
+            </td>
+            <td>
+              <pre>
+Sun Nov 12 2023 13:45:41 GMT+0430 (Afghanistan Time)       </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>toUTCString()</td>
+            <td>
+              The toUTCString() method converts a date to a UTC string (a date
+              display standard)
+            </td>
+            <td>
+              <pre>
+const d = new Date();
+document.getElementById("demo").innerHTML = d.toUTCString();
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Sun, 12 Nov 2023 09:16:40 GMT
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>toDateString()</td>
+            <td>
+              The toDateString() method converts a date to a more readable
+              format
+            </td>
+            <td>
+              <pre>
+const d = new Date();
+document.getElementById("demo").innerHTML = d.toDateString();
+
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Sun Nov 12 2023
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>toISOString()</td>
+            <td>
+              The toISOString() method converts a Date object to a string, using
+              the ISO standard format
+            </td>
+            <td>
+              <pre>
+cconst d = new Date();
+document.getElementById("demo").innerHTML = d.toISOString();
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+2023-11-12T09:18:40.368Z
+            </pre
+              >
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tt>Conditional statements</tt>
+          <th>Statements</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>if</td>
+            <td>
+              Use the if statement to specify a block of JavaScript code to be
+              executed if a condition is true.
+            </td>
+            <td>
+              <pre>
+if (new Date().getHours() &lt; 18) {
+  document.getElementById("demo").innerHTML = "Good day!"; </pre
+              >
+            </td>
+            <td><pre>Good day!      </pre></td>
+          </tr>
+          <tr>
+            <td>else</td>
+            <td>
+              <pre>
+Use the else statement to specify a block of code to be executed if the condition is false.
+if (condition) {
+  //  block of code to be executed if the condition is true
+} else {
+  //  block of code to be executed if the condition is false
+}</pre
+              >
+            </td>
+            <td>
+              <pre>
+const hour = new Date().getHours(); 
+let greeting;
+
+if (hour &lt; 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+
+document.getElementById("demo").innerHTML = greeting;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Good day
+            </pre
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td>else if</td>
+            <td>
+              <pre>
+Use the else if statement to specify a new condition if the first condition is false.
+if (condition1) {
+  //  block of code to be executed if condition1 is true
+} else if (condition2) {
+  //  block of code to be executed if the condition1 is false and condition2 is true
+} else {
+  //  block of code to be executed if the condition1 is false and condition2 is false
+}
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+const time = new Date().getHours();
+let greeting;
+if (time &lt; 10) {
+  greeting = "Good morning";
+} else if (time &lt; 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+document.getElementById("demo").innerHTML = greeting;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Good day
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>switch</td>
+            <td>
+              <pre>
+Use the switch statement to select one of many code blocks to be execute
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+let day;
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+document.getElementById("demo").innerHTML = "Today is " + day;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Today is Sunday
+            </pre
+              >
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tt>Js Loops</tt>
+          <th>Loops</th>
+          <th>Definition</th>
+          <th>Example</th>
+          <th>Output</th>
+          <tr>
+            <td>for</td>
+            <td>
+              <pre>
+The for statement creates a loop with 3 optional expressions
+for (expression 1; expression 2; expression 3) {
+  // code block to be executed
+}
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+let text = "";
+
+for (let i = 0; i &lt; 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text; </pre>
+            </td>
+            <td>
+              <pre>
+The number is 0
+The number is 1
+The number is 2
+The number is 3
+The number is 4    </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>for in</td>
+            <td>
+              <pre>
+The JavaScript for in statement loops through the properties of an Object:
+for (key in object) {
+  // code block to be executed
+}</pre
+              >
+            </td>
+            <td>
+              <pre>
+const person = {fname:"Ali", lname:"Ahmadi", age:25}; 
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+}
+
+document.getElementById("demo").innerHTML = txt;
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+Ali Ahmadi 25
+            </pre
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td>for of</td>
+            <td>
+              <pre>
+The JavaScript for of statement loops through the values of an iterable object.
+It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more
+for (variable of iterable) {
+  // code block to be executed
+}
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+const NUMS = ["ONE", "TWO", "THREE"];
+
+let text = "";
+for (let x of NUMS) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+            </pre>
+            </td>
+            <td>
+              <pre>
+ONE
+TWO
+THREE
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>while</td>
+            <td>
+              <pre>
+The while loop loops through a block of code as long as a specified condition is true.
+while (condition) {
+  // code block to be executed
+}
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+let text = "";
+let i = 0;
+while (i &lt; 10) {
+  text += "<br>The number is " + i;
+  i++;
+}
+document.getElementById("demo").innerHTML = text;
+            </pre>
+            </td>
+            <td>
+              <pre>
+
+The number is 0
+The number is 1
+The number is 2
+The number is 3
+The number is 4
+The number is 5
+The number is 6
+The number is 7
+The number is 8
+The number is 9
+            </pre
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>do while</td>
+            <td>
+              <pre>
+The do while loop is a variant of the while loop. This loop will execute the code block once, 
+before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+do {
+  // code block to be executed
+}
+while (condition);
+            </pre
+              >
+            </td>
+            <td>
+              <pre>
+let text = ""
+let i = 0;
+
+do {
+  text += "<br>The number is " + i;
+  i++;
+}
+while (i &lt;10);  
+
+document.getElementById("demo").innerHTML = text;
+            </pre>
+            </td>
+            <td>
+              <pre>
+
+The number is 0
+The number is 1
+The number is 2
+The number is 3
+The number is 4
+The number is 5
+The number is 6
+The number is 7
+The number is 8
+The number is 9
+            </pre
+              >
+            </td>
+          </tr>
+        </table>
+      </table>
+    </div>
+  </body>
+</html>
